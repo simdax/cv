@@ -1,0 +1,21 @@
+{
+  "name": "cv",
+  "description": "aucune",
+  "main": "",
+  "authors": [
+    "simdax <simoncornaz@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "^3.5.2",
+    "jquery": "^3.2.1"
+  }
+}

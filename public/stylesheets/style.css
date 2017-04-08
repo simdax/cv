@@ -1,0 +1,85 @@
+body,html{
+height: 100%;
+}
+
+ul{
+list-style-type: none;
+	padding: 0;
+}
+
+li{
+	cursor: pointer;
+	padding-right: 20px;
+}
+i{
+	margin: 10px;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgba(23,23, 200, 0.3);
+  margin: 0;
+	display: flex;
+	flex-direction: column;
+}
+.background{
+
+	background: url(http://recueil-de-png.r.e.pic.centerblog.net/78c700eb.png);
+	background-attachment: fixed;
+	background-size: cover; 
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+
+}
+
+nav{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; 
+		background-color: olive;
+}
+
+i.fa-home{
+	cursor: pointer;
+	text-align: center;
+	font-size: 3rem;
+}
+
+
+#wrapper{
+	/*overflow:  scroll;*/
+	display: flex;
+	flex: 1;
+}
+
+.display{
+	display: none ;
+}
+.visibility{
+	visibility: hidden;
+}
+
+
+main{
+	flex: 1;
+	padding: 20px;
+	padding-right: 100px; 
+	text-align: justify; 
+}
+main p{
+	cursor: pointer;
+	transition: all 0.3s;
+	/*font-size: 2rem;*/
+}
+header{
+	padding-top: 30px;
+	background-color: transparent;
+	text-align: center;
+	font-size: 2rem;
+}
+footer{
+	background-color: transparent;
+}
+
