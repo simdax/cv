@@ -6,29 +6,33 @@ var icons = $('i');
 
 var count=0;
 
+var other=0;
+
 const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 function anime (el,animation) {
-	el.addClass('animated ' + animation);
+	el.toggleClass('animated ' + animation);
 };
 function toggle() {
-		pars.eq(count).toggleClass('display');
+		pars.eq(count).toggleClass('hidde');
 		icons.eq(count).toggleClass('visibility');
 }
 function changeState (newIndex) {
 
-	// chaining
-	pars.eq(count).one(animationEnd, function() {
+	var elem = pars.eq(count);
+
+	elem.one(animationEnd, function() {
 		toggle();
-		if(newIndex){count=newIndex}else{count++};
+		pars.eq(count).toggleClass('animated fadeIn fadeOut');
+		if(newIndex != undefined ){count=newIndex}else{count++};
 		toggle();
 		anime(pars.eq(count), 'fadeIn');
 	});
-	anime(pars.eq(count),'fadeOut');
+	anime(elem,'fadeOut');
 }
 
 
-pars.toggleClass('display');
-pars.eq(0).toggleClass('display');
+pars.toggleClass('hidde');
+pars.eq(0).toggleClass('hidde fadeIn');
 icons.eq(0).toggleClass('visibility');
 
 pars.on('click', function() {
