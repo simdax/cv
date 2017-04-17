@@ -1,85 +1,79 @@
-body,html{
-height: 100%;
-}
+body, html {
+  height: 100%; }
 
-ul{
-list-style-type: none;
-	padding: 0;
-}
+ul {
+  list-style-type: none;
+  padding: 0; }
 
-li{
-	cursor: pointer;
-	padding-right: 20px;
-}
-i{
-	margin: 10px;
-}
+li {
+  cursor: pointer;
+  padding-right: 20px; }
+
+i {
+  margin: 10px; }
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgba(23,23, 200, 0.3);
+  background-color: rgba(23, 23, 200, 0.3);
   margin: 0;
-	display: flex;
-	flex-direction: column;
-}
-.background{
+  display: flex;
+  flex-direction: column; }
 
-	background: url(http://recueil-de-png.r.e.pic.centerblog.net/78c700eb.png);
-	background-attachment: fixed;
-	background-size: cover; 
-	background-position: center;
-	display: flex;
-	flex-direction: column;
-	flex: 1;
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
 
-}
+#jungle {
+  background-image: url(https://thumbs.dreamstime.com/z/arabic-cistern-underground-water-tank-caceres-extremadura-spain-collecting-rainwater-medieval-city-50635056.jpg);
+  z-index: -2; }
 
-nav{
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between; 
-		background-color: olive;
-}
+#transparent {
+  background-color: rgba(255, 255, 255, 0.3);
+  z-index: -1; }
 
-i.fa-home{
-	cursor: pointer;
-	text-align: center;
-	font-size: 3rem;
-}
+.parchemin {
+  background: url(http://recueil-de-png.r.e.pic.centerblog.net/78c700eb.png) no-repeat;
+  background-attachment: fixed;
+  background-size: 50%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1; }
 
+.hide {
+  display: none; }
 
-#wrapper{
-	/*overflow:  scroll;*/
-	display: flex;
-	flex: 1;
-}
+.visibility {
+  visibility: hidden; }
 
-.hidde{
-	display: none ;
-}
-.visibility{
-	visibility: hidden;
-}
+i.fa-home {
+  cursor: pointer;
+  text-align: center;
+  font-size: 3rem; }
 
+header {
+  padding-top: 30px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 2rem; }
 
-main{
-	flex: 1;
-	padding: 20px;
-	padding-right: 100px; 
-	text-align: justify; 
-}
-main p{
-	cursor: pointer;
-	transition: all 0.3s;
-	/*font-size: 2rem;*/
-}
-header{
-	padding-top: 30px;
-	background-color: transparent;
-	text-align: center;
-	font-size: 2rem;
-}
-footer{
-	background-color: transparent;
-}
+main {
+  display: flex;
+  flex: 1; }
 
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: olive; }
+
+#texte {
+  padding: 20%; }
+  #texte p {
+    cursor: pointer; }
+
+footer {
+  background-color: transparent; }

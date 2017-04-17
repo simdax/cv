@@ -4,10 +4,10 @@
 //////////////////////////////////////
 
 const gulp = require('gulp');
-//const sass = require('gulp-sass');
+const sass = require('gulp-sass');
+// const minify = require('gulp-minify');
 const nodemon = require('gulp-nodemon');
 const bs = require('browser-sync').create();
-
 
 
 // our browser-sync config + nodemon chain
@@ -22,16 +22,16 @@ gulp.task('browser-sync', ['nodemon'], function() {
 gulp.task('default', ['browser-sync'], function () {
 	gulp.watch('./views/**/*.pug', bs.reload);
 	gulp.watch('./public/**/*.js', bs.reload);
-	gulp.watch('./public/**/*.css', bs.reload);
+	gulp.watch('./public/**/*.sass', ['sass']);
 	gulp.watch(['./routes/**/*.js', './app.js', './bin/www'], ['bs-delay']);
 });
 
-// gulp.task('sass', function () {
-// 	gulp.src('public/**/*.sass')
-// 	.pipe(sass())
-// 	.pipe(gulp.dest('public/stylesheets'))
-// 	.pipe(bs.reload)
-// }); 
+gulp.task('sass', function () {
+	gulp.src('public/stylesheets/sass/style.sass')
+	.pipe(sass().on('error', sass.logError))
+	.pipe(gulp.dest('public/stylesheets'))
+	// .pipe(bs.reload)
+}); 
 
 // give nodemon time to restart
 gulp.task('bs-delay', function () {
@@ -46,7 +46,7 @@ gulp.task('nodemon', function (cb) {
 	return nodemon({
 		script: './bin/www',
 		ext: 'js',
-		// ignore: ['public/**/*.js'],
+		ignore: ['public/**/*.js'],
 		env: {
 			'NODE_ENV': 'development',
 			'DEBUG': 'appname:*'

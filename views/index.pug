@@ -1,23 +1,37 @@
 extends layout
 
+mixin list(tree)
+  ul
+    li #{tree.type}
+    if typeof tree.type == 'array'
+      li
+        each t in tree.children
+          +list(t)
+    else
+      li 
+        tree.
 
 block content
-  .background
-    header un footer tout à fait inutile
-    #wrapper
-      nav.animated.bounceInLeft
-        ul
-          - var ind=0
-          while ind < 7
-            li
-             i.fa.fa-arrow-right.visibility
-             | chap #{ind++}  
-      main
-        - var n =0
-        while n < 7
-          p.
-            Voici le paragraphe numéro #{n}
-          - n ++
-    footer 
-      i.fa.fa-home
-  script(src='javascripts/index.js')
+  #jungle.background
+  #transparent.background  
+  header un footer tout à fait inutile
+  main
+    nav.animated.bounceInLeft
+      ul
+        - var ind=0
+        while ind < 7
+          li
+           i.fa.fa-arrow-right.visibility
+           | chap #{ind++}  
+    //#texte.parchemin
+      - var n =0
+      each child in tree.children
+        include:markdown-it "../textes/redemption/blabla"+#{child}
+        p.
+          Voici le paragraphe numéro #{n}
+        - n ++
+    #liste
+      +list(histoire)
+  footer 
+    i.fa.fa-home
+  script console.log(!{JSON.stringify(histoire)})
