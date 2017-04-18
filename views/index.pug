@@ -2,19 +2,20 @@ extends layout
 
 mixin list(tree)
   ul
-    li #{tree.type}
-    if typeof tree.type == 'array'
-      li
-        each t in tree.children
-          +list(t)
-    else
-      li 
-        tree.
+    each file in tree
+      - var type = typeof file
+      if type == 'object'
+        .ss-par
+          ul 
+            +list(file)
+      else 
+        .paragraphe
+          #{file}
 
 block content
   #jungle.background
   #transparent.background  
-  header un footer tout à fait inutile
+  header un header tout à fait inutile
   main
     nav.animated.bounceInLeft
       ul
@@ -30,8 +31,12 @@ block content
         p.
           Voici le paragraphe numéro #{n}
         - n ++
-    #liste
-      +list(histoire)
+    #liste!= histoire
+      //each p in histoire
+        - console.log("coucou")
+        - console.log(p)  
+         #{p}
   footer 
     i.fa.fa-home
-  script console.log(!{JSON.stringify(histoire)})
+    | du bla bla de footer
+  //script console.log(!{JSON.stringify(histoire[1])})

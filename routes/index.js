@@ -6,25 +6,25 @@ var files;
 const fs = require('fs');
 const md = require('node-markdown').Markdown;
 
-var root =  "textes/redemption/blabla/"; 
+var root =  "textes/redemption/blabla/4/"; 
 var files;
 var my;
+const regexp = /[a-zA-Z0-9]+.md$/;
 
 // callback Func
 var parse=function(dossier){
   var container=[];
   for (var i = 0; i < dossier.children.length; i++) {
     var elem =  dossier.children[i];
-    var regexp = /[a-zA-Z0-9]+.md$/;
     if(elem.type == 'directory') 
       {
         container.push(parse(elem))
       }; 
     if(elem.name.match(regexp))
       {
-//        console.log(elem.path);
         var content=fs.readFileSync(root+elem.path);
-//        console.log(content);
+        // console.log(content.toString());
+        // container.push(content.toString());
         container.push(md(content.toString()));
       }
   }
@@ -36,8 +36,11 @@ dirToJson( root , function( err, dirTree ){
       throw err;
     }else{
       files = dirTree;
-      my=parse(files);
-//      console.log(my);
+      my = parse(files);
+      console.log('cuo');
+      for (var i = 0; i < my.length; i++) {
+         console.log(my[i])
+       }
     }
 });
 

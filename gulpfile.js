@@ -13,6 +13,7 @@ const bs = require('browser-sync').create();
 // our browser-sync config + nodemon chain
 gulp.task('browser-sync', ['nodemon'], function() {
 	bs.init(null, {
+		browser: 'firefox',
 		proxy: "http://localhost:3000",
 		port: 4000,
 	});
@@ -46,7 +47,7 @@ gulp.task('nodemon', function (cb) {
 	return nodemon({
 		script: './bin/www',
 		ext: 'js',
-		ignore: ['public/**/*.js'],
+		//ignore: ['public/**/*.js'],
 		env: {
 			'NODE_ENV': 'development',
 			'DEBUG': 'appname:*'
